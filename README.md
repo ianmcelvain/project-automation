@@ -1,6 +1,6 @@
 # About
 
-Automatically creates repository with initial commit for a new project with one command:
+Automatically creates repository with initial commit for a new project and opens VS Code in the project directory with one command:
 ```
 $ project NewProject
 ```
