@@ -1,5 +1,11 @@
 # About
 
+Automatically creates repository with initial commit for a new project with one command:
+```
+$ project NewProject
+```
+Not original idea but I wanted something to automate for multiple project types and a couple of prompts such as "Do you want this repository private?" for more flexibility down the road.
+
 
 ## Install
 
