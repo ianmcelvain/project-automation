@@ -26,9 +26,6 @@ def create():
     user.create_repo(name=project_name, private=string_to_bool(is_repo_private))
     print("Succesfully created repository {}".format(project_name))
 
-# New to python so there might be a better way
-# but this just turns the repo privacy argument (true or false)
-# from string to python boolean
 def string_to_bool(value):
     if value.lower() in ('yes', 'true', 't', 'y', '1'):
         return True
