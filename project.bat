@@ -2,8 +2,8 @@
 
 REM Address these vars according to your machine/prefs
 REM PROJECT_DIR E.G. C:/Users/user/Documents/Projects
-set PROJECT_DIR=
-set GITHUB_USERNAME=
+set PROJECT_DIR=C:/Users/username here/OneDrive/Documents/Projects
+set GITHUB_USERNAME=username here
 
 set PROJECT_TYPE=
 set PROJECT_NAME=%1
@@ -14,6 +14,7 @@ REM Remember to change the conditionals too
 REM I know, I know... There's a better method for those conditionals
 
 :type_of_project
+ECHO.
 ECHO Type of project?
 ECHO 1. Application
 ECHO 2. Unity
@@ -55,15 +56,24 @@ if /I "%c%" EQU "N" (
 goto :is_repo_private
 
 :final
-python %~dp0create.py %PROJECT_TYPE% %PROJECT_NAME% %IS_REPO_PRIVATE%
-cd %PROJECT_DIR%/%PROJECT_TYPE%/%PROJECT_NAME%/
-git init
-ECHO "# %PROJECT_NAME%" >> README.md
-git remote add origin https://github.com/%GITHUB_USERNAME%/%PROJECT_NAME%.git
-git add README.md
-git commit -m "Initial commit"
-git push -u origin master
-ECHO Succesfully created new project! 
-code .
+if EXIST %PROJECT_DIR%/%PROJECT_TYPE%/ (
+    python %~dp0create.py %PROJECT_TYPE% %PROJECT_NAME% %IS_REPO_PRIVATE% %PROJECT_DIR%
+    cd %PROJECT_DIR%/%PROJECT_TYPE%/%PROJECT_NAME%/
+    git init
+    ECHO "# %PROJECT_NAME%" >> README.md
+    git remote add origin https://github.com/%GITHUB_USERNAME%/%PROJECT_NAME%.git
+    git add README.md
+    git commit -m "Initial commit"
+    git push -u origin master
+    ECHO Succesfully created new project! 
+    code .
+) else (
+    ECHO [!!!] %PROJECT_DIR%/%PROJECT_TYPE%/%PROJECT_NAME%/ Directory does not exist!
+    ECHO Double check PROJECT_DIR is set properly before restarting.
+    ECHO Press any key to restart...
+    PAUSE >nul
+    cls
+    goto :type_of_project
+)
 
 :end

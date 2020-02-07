@@ -5,15 +5,16 @@ from github import Github
 project_type = str(sys.argv[1])
 project_name = str(sys.argv[2])
 is_repo_private = str(sys.argv[3])
+project_dir = str(sys.argv[4])
 # Path to projects
 # E.G. 'C:/Users/user/Documents/Projects/'
-path = '' + project_type
+path = project_dir + '/' + project_type
 
 # There are safer ways of inputting these values
 # like getting a token but for personal use this is fine
 # for the time being
-username = ''   # Github username
-password = ''   # Github password
+username = 'username here'   # Github username
+password = 'password here'   # Github password
 
 def create():
     # Chane working directory for script to project directory
