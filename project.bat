@@ -2,7 +2,8 @@
 
 REM Address these vars according to your machine/prefs
 REM PROJECT_DIR E.G. C:/Users/user/Documents/Projects
-set PROJECT_DIR=C:/Users/username here/OneDrive/Documents/Projects
+REM Directory is anywhere your projects are. Make sue to use foroward slashes '/'
+set PROJECT_DIR=C:/Users/username here/Documents/Projects
 set GITHUB_USERNAME=username here
 
 set PROJECT_TYPE=
