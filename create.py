@@ -6,6 +6,8 @@ project_type = str(sys.argv[1])
 project_name = str(sys.argv[2])
 is_repo_private = str(sys.argv[3])
 project_dir = str(sys.argv[4])
+# Path to projects
+# E.G. 'C:/Users/user/Documents/Projects/'
 path = project_dir + '/' + project_type
 
 # There are safer ways of inputting these values
@@ -26,6 +28,9 @@ def create():
     user.create_repo(name=project_name, private=string_to_bool(is_repo_private))
     print("Succesfully created repository {}".format(project_name))
 
+# New to python so there might be a better way
+# but this just turns the repo privacy argument (true or false)
+# from string to python boolean
 def string_to_bool(value):
     if value.lower() in ('yes', 'true', 't', 'y', '1'):
         return True
